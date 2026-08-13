@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  stonegy-auth:
+    build: .
+    container_name: stonegy-auth-server
+    restart: always
+    ports:
+      - "3333:3333"
+    environment:
+      - PORT=3333
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://postgres:d409ep9pbk6sz698cyd8@easypanel.vps1.klyraai.com.br:4264/nexusflow?sslmode=disable
+      - SALT=_stonegy_salt_2026
