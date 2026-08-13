@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tibia Online / Stonegy Pro Tracker - Hub & Updates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090f;
+      --card-bg: #13131e;
+      --card-border: #232336;
+      --accent: #00e676;
+      --accent-glow: rgba(0, 230, 118, 0.25);
+      --secondary: #00b0ff;
+      --text: #f0f0f8;
+      --text-muted: #8888a2;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+    
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 8%; border-bottom: 1px solid var(--card-border); background: rgba(14,14,22,0.8); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.25rem; }
+    .brand-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 0 16px var(--accent-glow); }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+    .nav-link:hover { color: #fff; }
+    .btn-admin { background: #1a1a2b; border: 1px solid var(--card-border); color: #fff; padding: 7px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .btn-admin:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero { text-align: center; padding: 70px 6% 50px; max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,230,118,0.1); border: 1px solid rgba(0,230,118,0.3); color: var(--accent); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px; }
+    .pulse-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
+    .hero-title { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .hero-title span { color: var(--accent); }
+    .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
+
+    .hero-cta { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-download { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #09090f; padding: 14px 28px; border-radius: 10px; font-weight: 800; font-size: 1rem; text-decoration: none; box-shadow: 0 8px 24px var(--accent-glow); transition: transform 0.2s, filter 0.2s; }
+    .btn-download:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: #181827; border: 1px solid var(--card-border); color: #fff; padding: 14px 24px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s; }
+    .btn-secondary:hover { background: #222238; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 6%; width: 100%; }
+    .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+    
+    .releases-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 50px; }
+    .release-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 24px; transition: border-color 0.2s; }
+    .release-card:hover { border-color: #383856; }
+    .release-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+    .release-version { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 800; color: var(--accent); background: rgba(0,230,118,0.1); padding: 3px 10px; border-radius: 6px; }
+    .release-date { font-size: 0.85rem; color: var(--text-muted); }
+    .release-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .release-changelog { font-size: 0.92rem; color: #b5b5cb; line-height: 1.6; white-space: pre-line; background: #0c0c14; padding: 14px 18px; border-radius: 8px; border: 1px solid #1a1a28; }
+
+    .footer { margin-top: auto; border-top: 1px solid var(--card-border); padding: 24px 8%; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand">
+      <div class="brand-icon">⚔️</div>
+      <span>Tibia / Stonegy Pro Tracker</span>
+    </div>
+    <div class="nav-links">
+      <a href="#updates" class="nav-link">Atualizações</a>
+      <a href="https://stonegy-online.com" target="_blank" class="nav-link">🎮 Jogar Stonegy Online</a>
+      <a href="/admin" class="btn-admin">⚙️ Painel Admin</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">
+      <span class="pulse-dot"></span>
+      <span id="dbStatus">Conectado ao Servidor em Nuvem</span>
+    </div>
+    <h1 class="hero-title">Hub Oficial de Atualizações • <span>tibiaonline.dialogy.klyraai.com.br</span></h1>
+    <p class="hero-subtitle">Monitore DPS em tempo real, calcule o balanço da hunt, detecte monstros Fiendish/Influenciados e sincronize suas conquistas com a nuvem.</p>
+    <div class="hero-cta">
+      <a href="/download/latest" class="btn-download" id="btnDownload">
+        <span>⬇️</span> Baixar Extensão (<span id="latestVerText">v3.4.0</span>)
+      </a>
+      <a href="#updates" class="btn-secondary">📜 Histórico de Atualizações</a>
+    </div>
+  </header>
+
+  <main class="container" id="updates">
+    <h2 class="section-title">🚀 Histórico de Atualizações & Releases</h2>
+    <div class="releases-list" id="releasesContainer">
+      <div style="text-align: center; padding: 30px; color: var(--text-muted);">Carregando atualizações do banco de dados...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Portal Oficial: <code>tibiaonline.dialogy.klyraai.com.br</code> • Auth API: <code>authtibia.klyraai.com.br</code></p>
+  </footer>
+
+  <script>
+    async function loadReleases() {
+      try {
+        const res = await fetch('/api/version/history');
+        const data = await res.json();
+        const container = document.getElementById('releasesContainer');
+
+        if (data.success && data.releases && data.releases.length > 0) {
+          container.innerHTML = '';
+          const latest = data.releases[0];
+          document.getElementById('latestVerText').textContent = 'v' + latest.version;
+
+          data.releases.forEach(rel => {
+            const card = document.createElement('div');
+            card.className = 'release-card';
+            const dateStr = new Date(rel.created_at).toLocaleDateString('pt-BR');
+            card.innerHTML = `
+              <div class="release-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="release-version">v${rel.version}</span>
+                  ${rel.force_update ? '<span style="background: #ff5252; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">OBRIGATÓRIA</span>' : ''}
+                </div>
+                <span class="release-date">Publicado em: ${dateStr}</span>
+              </div>
+              <div class="release-title">${rel.title}</div>
+              <div class="release-changelog">${rel.changelog}</div>
+            `;
+            container.appendChild(card);
+          });
+        } else {
+          container.innerHTML = '<div style="text-align: center; color: #888;">Nenhuma atualização registrada no momento.</div>';
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function checkHealth() {
+      try {
+        const res = await fetch('/api/health');
+        const d = await res.json();
+        const badge = document.getElementById('dbStatus');
+        if (d.success && d.status === 'online') {
+          badge.textContent = 'PostgreSQL Online (Porta 4264)';
+        } else {
+          badge.textContent = 'PostgreSQL Desconectado';
+        }
+      } catch(e){}
+    }
+
+    loadReleases();
+    checkHealth();
+  </script>
+</body>
+</html>

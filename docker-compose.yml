@@ -12,3 +12,6 @@ services:
       - NODE_ENV=production
       - DATABASE_URL=postgres://postgres:d409ep9pbk6sz698cyd8@easypanel.vps1.klyraai.com.br:4264/nexusflow?sslmode=disable
       - SALT=_stonegy_salt_2026
+      - AUTH_URL=https://authtibia.klyraai.com.br
+      - WEBSITE_URL=https://tibiaonline.dialogy.klyraai.com.br
+      - TARGET_GAME_URL=https://stonegy-online.com
