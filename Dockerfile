@@ -1,11 +1,23 @@
-# Etapa 1: Instalação de dependências
+# syntax=docker/dockerfile:1
+
+# =========================================================================
+# Etapa 1: Instalação de Dependências com Cache Inteligente
+# =========================================================================
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
 
-# Etapa 2: Build do Next.js
+# Copia apenas os manifestos de dependência primeiro para aproveitar o cache do Docker.
+# Se o package.json não mudar, o Docker NÃO baixa nada novamente!
+COPY package.json package-lock.json* ./
+
+# Utiliza cache mount no diretório do npm para reutilizar downloads entre builds
+RUN --mount=type=cache,target=/root/.npm \
+    npm install
+
+# =========================================================================
+# Etapa 2: Build do Next.js com Cache Incremental
+# =========================================================================
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -14,9 +26,13 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
-RUN npm run build
+# Utiliza cache mount no .next/cache para compilações incrementais ultra-rápidas
+RUN --mount=type=cache,target=/app/.next/cache \
+    npm run build
 
-# Etapa 3: Imagem Final de Execução (Ultra leve ~120MB)
+# =========================================================================
+# Etapa 3: Imagem Final de Execução (Ultra Leve ~120MB)
+# =========================================================================
 FROM node:20-alpine AS runner
 WORKDIR /app
 
@@ -30,6 +46,7 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
+# Copia os artefatos standalone otimizados
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/StonegyStats_PROTECTED.zip ./StonegyStats_PROTECTED.zip
