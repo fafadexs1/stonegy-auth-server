@@ -1,3 +1,11 @@
+# Arquivos de Variáveis de Ambiente e Segredos
+.env
+.env*.local
+.env.production
+.env.development
+.env.test
+
+# Node & Build
 node_modules/
 .next/
 out/
@@ -6,7 +14,3 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.pem
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
