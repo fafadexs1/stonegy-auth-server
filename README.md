@@ -1,57 +1,44 @@
-# ⚔️ Stonegy Auth & Leaderboard Server
+# ⚔️ Stonegy Pro Tracker - Next.js Auth Server & Updates Hub
 
-Backend de Autenticação, Gerenciamento de Sessões e Leaderboard para a extensão **Stonegy Pro Tracker**, com persistência no **PostgreSQL** e suporte a deploy via **Docker / Easypanel**.
-
----
-
-## 🌐 Domínio de Produção
-* **URL:** `https://authtibia.klyraai.com.br`
+Backend de Autenticação, Leaderboards e Website Oficial de Atualizações desenvolvido em **Next.js (App Router)** com **PostgreSQL** e suporte a deploy via **Docker / Easypanel**.
 
 ---
 
-## 🚀 Como subir para o seu GitHub (Passo a Passo)
+## 🌐 Domínios do Sistema
 
-Abra o terminal dentro da pasta `StonegyAuthServer` e execute:
-
-```bash
-git init
-git add .
-git commit -m "feat: Stonegy Auth Server com Postgres e Docker para Easypanel"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/stonegy-auth-server.git
-git push -u origin main
-```
-
-*(Substitua `https://github.com/SEU_USUARIO/stonegy-auth-server.git` pelo link do seu repositório criado no GitHub).*
+* 🔑 **Auth API**: `https://authtibia.klyraai.com.br`
+* 🚀 **Website Oficial & Updates**: `https://tibiaonline.dialogy.klyraai.com.br`
+* 🎮 **Jogo Stonegy Online**: `https://stonegy-online.com`
 
 ---
 
-## 📦 Como implantar no Easypanel (VPS)
+## 🐳 Como Implantar no Easypanel (Next.js)
 
-1. No painel do seu **Easypanel**, clique em **"+ New App"** -> **"App from Git"**.
-2. Cole o link do seu repositório do GitHub (ou configure via Deploy Key/GitHub App).
+1. No **Easypanel**, clique em **"+ Service"** (ou **"+ New App"**) ➔ **"App from Git"**.
+2. Selecione o repositório: **`fafadexs1/stonegy-auth-server`** (branch `main`).
 3. Em **Build Settings**:
-   * **Build Type**: `Dockerfile` ou `Nixpacks`
+   * **Build Type**: `Dockerfile`
    * **Port**: `3333`
-4. Em **Environment (Variáveis de Ambiente)**, adicione:
+4. Em **Environment (Variáveis de Ambiente)**:
    ```env
    PORT=3333
+   NODE_ENV=production
    DATABASE_URL=postgres://postgres:d409ep9pbk6sz698cyd8@easypanel.vps1.klyraai.com.br:4264/nexusflow?sslmode=disable
    SALT=_stonegy_salt_2026
+   AUTH_URL=https://authtibia.klyraai.com.br
+   WEBSITE_URL=https://tibiaonline.dialogy.klyraai.com.br
+   TARGET_GAME_URL=https://stonegy-online.com
    ```
-5. Em **Domains (Domínios)**:
-   * Adicione o domínio: `authtibia.klyraai.com.br`
-   * Certifique-se de que o DNS do domínio `authtibia.klyraai.com.br` (Registro tipo **A**) aponta para o IP da sua VPS.
+5. Em **Domains (Domínios)**, adicione:
+   * **`authtibia.klyraai.com.br`**
+   * **`tibiaonline.dialogy.klyraai.com.br`**
 6. Clique em **Deploy**.
 
 ---
 
-## 🧪 Endpoints da API
+## 🚀 Páginas e Recursos
 
-* `GET /` -> Status do servidor.
-* `GET /api/health` -> Diagnóstico e status da conexão com o PostgreSQL em tempo real.
-* `POST /api/login` -> Autenticação de usuário com hash SHA-256 e emissão de token.
-* `POST /api/register` -> Criação de nova conta com plano VIP PRO.
-* `POST /api/verify` -> Validação de token de sessão ativa.
-* `POST /api/hunt/record` -> Gravação de relatório de hunt no banco.
-* `GET /api/hunt/leaderboard` -> Ranking dos Top 10 Hunters do servidor.
+* `/` ➔ Página inicial oficial com histórico de versões, download direto da extensão e status da conexão.
+* `/admin` ➔ Painel administrativo para publicar novas atualizações com changelog e notificações em tempo real para as extensões dos jogadores.
+* `/download/latest` ➔ Download direto do pacote ZIP protegido da extensão (`StonegyStats_PROTECTED.zip`).
+* `/api/*` ➔ Rotas de API completas com CORS liberado para o jogo (`login`, `register`, `verify`, `hunt/record`, `hunt/leaderboard`, `version/check`).
