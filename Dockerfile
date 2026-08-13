@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # =========================================================================
-# Etapa 1: Instalação de Dependências com Cache
+# Etapa 1: Instalação de Dependências
 # =========================================================================
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
@@ -40,13 +40,16 @@ ENV PORT 2020
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Copia arquivos estáticos públicos e bundles do Next.js
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/start.js ./start.js
+COPY --from=builder /app/StonegyStats_PROTECTED.zip ./StonegyStats_PROTECTED.zip
 
-# Copia arquivos do standalone
+# Copia artefatos do Next.js Standalone
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/StonegyStats_PROTECTED.zip ./StonegyStats_PROTECTED.zip
+COPY --from=builder --chown=nextjs:nodejs /app/public ./.next/standalone/public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/standalone/.next/static
 
 USER nextjs
 
