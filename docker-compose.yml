@@ -15,17 +15,9 @@ services:
       DB_PORT: ${DB_PORT:-4264}
       SALT: ${SALT:-_stonegy_salt_2026}
       
-      # Auth API
-      AUTH_URL: ${AUTH_URL}
-      AUTH_PORT: ${AUTH_PORT:-2021}
-      
-      # Website Hub
-      WEBSITE_URL: ${WEBSITE_URL}
-      WEBSITE_PORT: ${WEBSITE_PORT:-2022}
-      
-      # Jogo Stonegy Online
-      TARGET_GAME_URL: ${TARGET_GAME_URL}
-      TARGET_GAME_PORT: ${TARGET_GAME_PORT:-443}
+      # URL Única Unificada
+      SITE_URL: ${SITE_URL:-https://tibiaonline.klyraai.com.br}
+      TARGET_GAME_URL: ${TARGET_GAME_URL:-https://stonegy-online.com}
       
       # Admin
       ADMIN_KEY: ${ADMIN_KEY:-CACADEXO_SODEXO_FILADAPUTA}

@@ -14,18 +14,18 @@ export async function GET() {
       LIMIT 1;
     `);
 
-    const WEBSITE_URL = process.env.WEBSITE_URL || 'https://tibiaonline.dialogy.klyraai.com.br';
+    const SITE_URL = process.env.SITE_URL || 'https://tibiaonline.klyraai.com.br';
 
     if (verRes.rows.length > 0) {
       const rel = verRes.rows[0];
-      const dlUrl = rel.download_url.startsWith('http') ? rel.download_url : `${WEBSITE_URL}${rel.download_url}`;
+      const dlUrl = rel.download_url.startsWith('http') ? rel.download_url : `${SITE_URL}${rel.download_url}`;
       return NextResponse.json({
         success: true,
         latestVersion: rel.version,
         title: rel.title,
         changelog: rel.changelog,
         downloadUrl: dlUrl,
-        websiteUrl: WEBSITE_URL,
+        websiteUrl: SITE_URL,
         forceUpdate: rel.force_update,
         releaseDate: rel.created_at
       });
@@ -34,8 +34,8 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       latestVersion: '3.4.0',
-      websiteUrl: WEBSITE_URL,
-      downloadUrl: `${WEBSITE_URL}/download/latest`
+      websiteUrl: SITE_URL,
+      downloadUrl: `${SITE_URL}/download/latest`
     });
   } catch (err) {
     return NextResponse.json({ success: true, latestVersion: '3.4.0' });

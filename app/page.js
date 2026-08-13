@@ -79,7 +79,7 @@ export default function HomePage() {
           <span>{dbOnline ? 'PostgreSQL Online (Porta 4264)' : 'Servidor Inicializando...'}</span>
         </div>
         <h1 style={{ fontSize: '2.8rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px', letterSpacing: '-0.5px' }}>
-          Hub Oficial de Atualizações • <span style={{ color: 'var(--accent)' }}>tibiaonline.dialogy.klyraai.com.br</span>
+          Hub Oficial de Atualizações • <span style={{ color: 'var(--accent)' }}>tibiaonline.klyraai.com.br</span>
         </h1>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '32px' }}>
           Monitore DPS em tempo real, calcule o balanço da hunt, receba alertas sonoros de monstros Fiendish/Influenciados e sincronize suas conquistas com a nuvem.
@@ -146,7 +146,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer style={{ marginTop: 'auto', borderTop: '1px solid var(--card-border)', padding: '24px 8%', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-        <p>Portal Oficial: <code>tibiaonline.dialogy.klyraai.com.br</code> • Auth API: <code>authtibia.klyraai.com.br</code> • Powered by Next.js</p>
+        <p>Portal Oficial & API: <code>tibiaonline.klyraai.com.br</code> • Powered by Next.js</p>
       </footer>
     </div>
   );
