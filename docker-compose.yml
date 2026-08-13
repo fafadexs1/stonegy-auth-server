@@ -10,9 +10,23 @@ services:
     environment:
       PORT: ${PORT}
       NODE_ENV: ${NODE_ENV}
+      
+      # Banco de Dados PostgreSQL
       DATABASE_URL: ${DATABASE_URL}
+      DB_PORT: ${DB_PORT}
       SALT: ${SALT}
+      
+      # Auth API
       AUTH_URL: ${AUTH_URL}
+      AUTH_PORT: ${AUTH_PORT}
+      
+      # Website Hub
       WEBSITE_URL: ${WEBSITE_URL}
+      WEBSITE_PORT: ${WEBSITE_PORT}
+      
+      # Jogo Stonegy Online
       TARGET_GAME_URL: ${TARGET_GAME_URL}
+      TARGET_GAME_PORT: ${TARGET_GAME_PORT}
+      
+      # Admin
       ADMIN_KEY: ${ADMIN_KEY}

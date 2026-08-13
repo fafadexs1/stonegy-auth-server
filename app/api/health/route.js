@@ -10,11 +10,24 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       status: 'online',
-      authUrl: process.env.AUTH_URL || 'https://authtibia.klyraai.com.br',
-      websiteUrl: process.env.WEBSITE_URL || 'https://tibiaonline.dialogy.klyraai.com.br',
-      gameUrl: process.env.TARGET_GAME_URL || 'https://stonegy-online.com',
-      dbName: dbRes.rows[0].db_name,
-      dbTime: dbRes.rows[0].db_time,
+      
+      auth: {
+        url: process.env.AUTH_URL || 'https://authtibia.klyraai.com.br',
+        port: process.env.AUTH_PORT || '3333'
+      },
+      website: {
+        url: process.env.WEBSITE_URL || 'https://tibiaonline.dialogy.klyraai.com.br',
+        port: process.env.WEBSITE_PORT || '3333'
+      },
+      game: {
+        url: process.env.TARGET_GAME_URL || 'https://stonegy-online.com',
+        port: process.env.TARGET_GAME_PORT || '443'
+      },
+      database: {
+        name: dbRes.rows[0].db_name,
+        port: process.env.DB_PORT || '4264',
+        time: dbRes.rows[0].db_time
+      }
     });
   } catch (err) {
     return NextResponse.json({ success: false, status: 'offline', error: err.message }, { status: 503 });
