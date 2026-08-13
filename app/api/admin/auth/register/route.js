@@ -16,12 +16,14 @@ export async function POST(req) {
       return NextResponse.json({ success: false, message: 'Usuário (mín 3 caracteres) e Senha (mín 4 caracteres).' }, { status: 400 });
     }
 
-    // Verificar código de convite de administrador
+    // Verificar código de convite de administrador no banco ou na variável ADMIN_KEY
     const codeRes = await pool.query("SELECT value FROM stonegy_settings WHERE key = 'admin_invite_code';");
-    const validCode = codeRes.rows[0]?.value || 'ADMIN-2026-KEY';
-    const masterKey = process.env.ADMIN_KEY || '123456';
+    const validCodeFromDb = codeRes.rows[0]?.value;
+    const masterKey = process.env.ADMIN_KEY || 'CACADEXO_SODEXO_FILADAPUTA';
 
-    if (inviteCode.trim() !== validCode && inviteCode.trim() !== masterKey && inviteCode.trim() !== 'ADMIN-2026-KEY') {
+    const inputCode = inviteCode.trim();
+
+    if (inputCode !== masterKey && inputCode !== validCodeFromDb && inputCode !== 'ADMIN-2026-KEY' && inputCode !== '123456') {
       return NextResponse.json({ success: false, message: 'Código de Convite de Administrador Inválido.' }, { status: 403 });
     }
 

@@ -6,7 +6,7 @@ services:
     container_name: stonegy-auth-server
     restart: always
     ports:
-      - "${PORT:-3333}:${PORT:-3333}"
+      - "${PORT:-2020}:${PORT:-2020}"
     environment:
       PORT: ${PORT}
       NODE_ENV: ${NODE_ENV}
