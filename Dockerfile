@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # =========================================================================
-# Etapa 1: Instalação de Dependências com Cache Inteligente
+# Etapa 1: Instalação de Dependências com Cache
 # =========================================================================
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=/root/.npm \
     npm install
 
 # =========================================================================
-# Etapa 2: Build do Next.js com Cache Incremental
+# Etapa 2: Build do Next.js
 # =========================================================================
 FROM node:20-alpine AS builder
 WORKDIR /app
@@ -27,7 +27,7 @@ RUN --mount=type=cache,target=/app/.next/cache \
     npm run build
 
 # =========================================================================
-# Etapa 3: Imagem Final de Execução (Ultra Leve ~120MB)
+# Etapa 3: Imagem Final de Execução
 # =========================================================================
 FROM node:20-alpine AS runner
 WORKDIR /app
@@ -41,8 +41,9 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/start.js ./start.js
 
-# Copia artefatos standalone
+# Copia arquivos do standalone
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/StonegyStats_PROTECTED.zip ./StonegyStats_PROTECTED.zip
@@ -51,5 +52,4 @@ USER nextjs
 
 EXPOSE 2020
 
-# Garante que HOSTNAME seja sempre 0.0.0.0 e a porta seja dinâmica de acordo com o Easypanel
-CMD ["sh", "-c", "HOSTNAME=0.0.0.0 PORT=${PORT:-2020} node server.js"]
+CMD ["node", "start.js"]
