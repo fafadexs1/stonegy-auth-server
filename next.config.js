@@ -1,15 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  experimental: {
-    serverComponentsExternalPackages: ['pg'],
-  },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push('pg');
-    }
-    return config;
-  },
+  serverExternalPackages: ['pg'],
   async headers() {
     return [
       {
