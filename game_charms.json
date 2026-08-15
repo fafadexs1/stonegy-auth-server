@@ -1,0 +1,427 @@
+[
+  {
+    "id": 0,
+    "key": "WOUND",
+    "name": "Wound",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "PHYSICAL",
+    "percent": 5,
+    "points": [
+      240,
+      360,
+      1200
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_0.png",
+    "description": "Chance on hit to deal extra physical damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 1,
+    "key": "ENFLAME",
+    "name": "Enflame",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "FIRE",
+    "percent": 5,
+    "points": [
+      400,
+      600,
+      2000
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_1.png",
+    "description": "Chance on hit to deal extra fire damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 2,
+    "key": "POISON",
+    "name": "Poison",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "EARTH",
+    "percent": 5,
+    "points": [
+      240,
+      360,
+      1200
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_2.png",
+    "description": "Chance on hit to deal extra earth damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 3,
+    "key": "FREEZE",
+    "name": "Freeze",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "ICE",
+    "percent": 5,
+    "points": [
+      320,
+      480,
+      1600
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_3.png",
+    "description": "Chance on hit to deal extra ice damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 4,
+    "key": "ZAP",
+    "name": "Zap",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "ENERGY",
+    "percent": 5,
+    "points": [
+      320,
+      480,
+      1600
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_4.png",
+    "description": "Chance on hit to deal extra energy damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 5,
+    "key": "CURSE",
+    "name": "Curse",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "DEATH",
+    "percent": 5,
+    "points": [
+      360,
+      540,
+      1800
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_5.png",
+    "description": "Chance on hit to deal extra death damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 7,
+    "key": "PARRY",
+    "name": "Parry",
+    "category": "MAJOR",
+    "type": "DEFENSIVE",
+    "effect": "PARRY",
+    "damageType": "PHYSICAL",
+    "ignoresElementalResistance": true,
+    "points": [
+      400,
+      600,
+      2000
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_7.png",
+    "description": "Chance to reflect the damage taken from the creature back at it."
+  },
+  {
+    "id": 8,
+    "key": "DODGE",
+    "name": "Dodge",
+    "category": "MAJOR",
+    "type": "DEFENSIVE",
+    "effect": "DODGE",
+    "points": [
+      240,
+      360,
+      1200
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_8.png",
+    "description": "Chance to dodge an attack from the creature without taking any damage at all."
+  },
+  {
+    "id": 11,
+    "key": "CLEANSE",
+    "name": "Cleanse",
+    "category": "MINOR",
+    "type": "DEFENSIVE",
+    "effect": "CLEANSE",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      6,
+      9,
+      12
+    ],
+    "icon": "/assets/ui/charms/charm_11.png",
+    "description": "Chance to purify a negative effect inflicted by the creature and to stay immune to it for 11 seconds."
+  },
+  {
+    "id": 12,
+    "key": "BLESS",
+    "name": "Bless",
+    "category": "MINOR",
+    "type": "PASSIVE",
+    "effect": "BLESS",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      6,
+      9,
+      12
+    ],
+    "icon": "/assets/ui/charms/charm_12.png",
+    "description": "Reduces experience and skill loss when you are killed by the creature."
+  },
+  {
+    "id": 14,
+    "key": "GUT",
+    "name": "Gut",
+    "category": "MINOR",
+    "type": "PASSIVE",
+    "effect": "IMPROVED_LOOT",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      6,
+      9,
+      12
+    ],
+    "icon": "/assets/ui/charms/charm_14.png",
+    "description": "Increases the loot chance of the creature."
+  },
+  {
+    "id": 15,
+    "key": "LOW_BLOW",
+    "name": "Low Blow",
+    "category": "MAJOR",
+    "type": "PASSIVE",
+    "effect": "CRITICAL_CHANCE",
+    "points": [
+      800,
+      1200,
+      4000
+    ],
+    "values": [
+      4,
+      8,
+      9
+    ],
+    "icon": "/assets/ui/charms/charm_15.png",
+    "description": "Adds critical hit chance to attacks against the creature."
+  },
+  {
+    "id": 16,
+    "key": "DIVINE_WRATH",
+    "name": "Divine Wrath",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "ELEMENTAL_STRIKE",
+    "damageType": "HOLY",
+    "percent": 5,
+    "points": [
+      600,
+      900,
+      3000
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_16.png",
+    "description": "Chance on hit to deal extra holy damage equal to 5% of the creature's maximum hit points, capped at twice your level."
+  },
+  {
+    "id": 17,
+    "key": "VAMPIRIC_EMBRACE",
+    "name": "Vampiric Embrace",
+    "category": "MINOR",
+    "type": "PASSIVE",
+    "effect": "LIFE_LEECH",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      1.6,
+      2.4,
+      3.2
+    ],
+    "icon": "/assets/ui/charms/charm_17.png",
+    "description": "Adds life leech to attacks against the creature."
+  },
+  {
+    "id": 18,
+    "key": "VOIDS_CALL",
+    "name": "Void's Call",
+    "category": "MINOR",
+    "type": "PASSIVE",
+    "effect": "MANA_LEECH",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      0.8,
+      1.2,
+      1.6
+    ],
+    "icon": "/assets/ui/charms/charm_18.png",
+    "description": "Adds mana leech to attacks against the creature."
+  },
+  {
+    "id": 19,
+    "key": "SAVAGE_BLOW",
+    "name": "Savage Blow",
+    "category": "MAJOR",
+    "type": "PASSIVE",
+    "effect": "CRITICAL_DAMAGE",
+    "points": [
+      800,
+      1200,
+      4000
+    ],
+    "values": [
+      20,
+      40,
+      44
+    ],
+    "icon": "/assets/ui/charms/charm_19.png",
+    "description": "Adds critical extra damage to attacks against the creature."
+  },
+  {
+    "id": 21,
+    "key": "VOID_INVERSION",
+    "name": "Void Inversion",
+    "category": "MINOR",
+    "type": "PASSIVE",
+    "effect": "VOID_INVERSION",
+    "points": [
+      100,
+      150,
+      225
+    ],
+    "values": [
+      20,
+      30,
+      40
+    ],
+    "icon": "/assets/ui/charms/charm_21.png",
+    "description": "Chance to gain mana instead of losing it when the creature drains your mana."
+  },
+  {
+    "id": 22,
+    "key": "CARNAGE",
+    "name": "Carnage",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "CARNAGE",
+    "damageType": "PHYSICAL",
+    "ignoresElementalResistance": true,
+    "percent": 15,
+    "points": [
+      600,
+      900,
+      3000
+    ],
+    "values": [
+      10,
+      20,
+      22
+    ],
+    "icon": "/assets/ui/charms/charm_22.png",
+    "description": "Chance, when you kill the creature, to deal damage equal to 15% of its maximum hit points to nearby creatures, capped at six times your level."
+  },
+  {
+    "id": 23,
+    "key": "OVERPOWER",
+    "name": "Overpower",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "OVERPOWER",
+    "damageType": "PHYSICAL",
+    "ignoresElementalResistance": true,
+    "percent": 5,
+    "points": [
+      600,
+      900,
+      3000
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_23.png",
+    "description": "Chance on hit to deal extra damage equal to 5% of your maximum health, capped at 8% of the creature's maximum hit points."
+  },
+  {
+    "id": 24,
+    "key": "OVERFLUX",
+    "name": "Overflux",
+    "category": "MAJOR",
+    "type": "OFFENSIVE",
+    "effect": "OVERFLUX",
+    "damageType": "PHYSICAL",
+    "ignoresElementalResistance": true,
+    "percent": 2.5,
+    "points": [
+      600,
+      900,
+      3000
+    ],
+    "values": [
+      5,
+      10,
+      11
+    ],
+    "icon": "/assets/ui/charms/charm_24.png",
+    "description": "Chance on hit to deal extra damage equal to 2.5% of your maximum mana, capped at 8% of the creature's maximum hit points."
+  }
+]
